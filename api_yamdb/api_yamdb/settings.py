@@ -1,10 +1,8 @@
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from datetime import timedelta
 from dotenv import load_dotenv
 
-#osenv_path='/infra/.env'
 load_dotenv()
 
 
@@ -12,13 +10,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = '1896711190:AAFmXXXXPEn6KqewJ13kKKtlnBYqVC_XXXX'
 
-#SECRET_KEY = os.getenv('SECRET_KEY')
-
 DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'web']
-# ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default='*').split()
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -65,9 +59,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'api_yamdb.wsgi.application'
 
-
-# REST Framework
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -83,9 +74,6 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
-
-# Database
-
 DATABASES = {
     'default': {
         'ENGINE': os.getenv('DB_ENGINE', default='django.db.backends.postgresql'),
@@ -97,18 +85,12 @@ DATABASES = {
     }
 }
 
-
-# Authentication
-
 AUTH_USER_MODEL = 'reviews.User'
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'api.authentication.CustomBackend',
 )
-
-
-# Password validation
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -136,25 +118,13 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-# STATICFILES_DIRS необходимо закомментировать или удалить
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Email
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-#EMAIL_HOST = os.getenv('EMAIL_HOST')
-
-#EMAIL_PORT = os.getenv('EMAIL_PORT')
-
 EMAIL_USE_SSL = True
-
-# EMAIL_USE_TLS = True
-
-#EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-
-#EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
