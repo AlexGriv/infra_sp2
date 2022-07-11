@@ -4,15 +4,15 @@ from datetime import timedelta
 from dotenv import load_dotenv
 
 load_dotenv()
-
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = '1896711190:AAFmXXXXPEn6KqewJ13kKKtlnBYqVC_XXXX'
+SECRET_KEY = os.getenv('SECRET_KEY', default=None)
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'web']
+ALLOWED_HOSTS = [
+    os.getenv('ALLOWED_HOSTS', default=None),
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'api',
     'reviews',
+    'dotenv',
 ]
 
 MIDDLEWARE = [

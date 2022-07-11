@@ -49,6 +49,7 @@ POSTGRES_PASSWORD=postgres # пароль для подключения к БД 
 DB_HOST=db # название сервиса (контейнера)
 DB_PORT=5432 # порт для подключения к БД
 SECRET_KEY = ''
+ALLOWED_HOSTS=example.com
 
 
 ## Регистрация новых пользователей
