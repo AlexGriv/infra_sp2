@@ -98,4 +98,4 @@ POST .../api/v1/titles/
 * Шухрат
 * Анна
 
-AlexGriv/infra_actions
+AlexGriv https://github.com/AlexGriv
